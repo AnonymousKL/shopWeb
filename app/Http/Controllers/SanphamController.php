@@ -26,9 +26,10 @@ class SanphamController extends Controller
         $giatien = $request->gia;
         $image_name = $request->file('image')->getClientOriginalName();
         $image_path = 'img/thumbnail/'.$image_name;
-        $bigimage = 'img/poster'.$request->bigimage;
+        $bigimage_name = $request->file('bigimage')->getClientOriginalName();
+        $bigimage_path = 'img/poster/'.$bigimage_name;
         $result = DB::table('san_phams')->insert([
-            ['tenSP' => $tensp, 'idDM' => $theloai,'gia' => $giatien, 'image' => $image_path, 'bigimage' => $bigimage]
+            ['tenSP' => $tensp, 'idDM' => $theloai,'gia' => $giatien, 'image' => $image_path, 'bigimage' => $bigimage_path]
         ]); 
         if ($request->file('image')->isValid()){
             // Lưu file vào thư mục upload với tên là biến $filename
