@@ -21,5 +21,9 @@ Route::post('/handle_log', 'AdminController@handle_log');
 Route::get('/logout', 'AdminController@logout');
 
 //Handle product
-Route::post('/add', 'SanPhamController@add');
-Route::post('/addimage', 'SanPhamController@addimage');
+Route::group(['prefix' => 'product'], function(){
+    Route::get('/', 'SanPhamController@show');
+    Route::post('/create', 'SanPhamController@create');
+    Route::post('/addimage', 'SanPhamController@addimage');
+    Route::post('/test', 'SanPhamController@test');
+});

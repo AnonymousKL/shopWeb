@@ -74,99 +74,29 @@
                 <h2 class="title">Quần Áo Nam</h2>
                 <hr class="line"></hr>
                 <ul class="product-ul">
+                @foreach($nam as $n)
                     <li><a href="#">
-                        <img class="product-img" width="180" height="200" src="../../public/img/thumbnail/sp1.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
+                        <img class="product-img" width="180" height="200" src="{{$n->image}}">
+                        <p class="product-name">{{$n->tenSP}}</p>
+                        <p class="product-prize">{{ $n->gia }} đ</p>
                         </a>
                     </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                   
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img class="product-img" width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
+                @endforeach
                 </ul>
-                <span class="btn-xemthem">Xem thêm</span>
+                <span class="btn-xemthem"><a href="#">Xem thêm</a></span>
             </div>
             <div class="product2">
                 <h2 class="title">Quần Áo Nữ</h2>
                 <hr class="line"></hr>
                 <ul class="product-ul">
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
+                @foreach($nu as $g)
+                    <li><img width="180" height="200" src="{{$g->image}}">
+                        <p class="product-name">{{$g->tenSP}}</p>
+                        <p class="product-prize">{{ $g->gia }} đ</p>
                     </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                   
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
-                    <li><img width="180" height="200" src="../../public/img/thumbnail/chicago.jpg">
-                        <p class="product-name">Áo dài tay</p>
-                        <p class="product-prize">234.999 đ</p>
-                    </li>
+                @endforeach
                 </ul>
-                <span class="btn-xemthem">Xem thêm</span>
+                <span class="btn-xemthem"><a  href="#">Xem thêm</a></span>
             </div>
         
             <!-- Page 1 -->
@@ -174,7 +104,7 @@
                 <h2 class="title">Quần Áo Nữ</h2>
                 <hr class="line"></hr>
                 <ul class="product-ul">
-                @foreach($sanpham as $sp)
+                @foreach($nu as $sp)
                     <li><img width="180" height="200" src="{{$sp->image}}">
                         <p class="product-name">{{$sp->tenSP}}</p>
                         <p class="product-prize">{{ $sp->gia }} đ</p>

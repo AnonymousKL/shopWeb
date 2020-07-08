@@ -14,13 +14,20 @@ class SanphamController extends Controller
         return view('detail');
     }
     public function home(){
-        $sanpham = SanPham::all();
+        $nam = DB::table('san_phams')->where('idDM', 1)
+                                    ->orderBy('id','desc')
+                                    ->limit(10)
+                                    ->get();
+        $nu = DB::table('san_phams')->where('idDM', 2)
+                                    ->orderBy('id','desc')
+                                    ->limit(10)
+                                    ->get();
         $danhmuc = DanhMuc::all();
         // dd($data);
-        
-        return view('home', compact(['danhmuc', 'sanpham']));
+       
+        return view('home', compact(['danhmuc', 'nam', 'nu']));
     }
-    public function add(Request $request){
+    public function create(Request $request){
         $tensp = $request->tensp;
         $theloai = $request->theloai;
         $giatien = $request->gia;
@@ -34,10 +41,26 @@ class SanphamController extends Controller
         if ($request->file('image')->isValid()){
             // Lưu file vào thư mục upload với tên là biến $filename
             $request->file('image')->move('img/thumbnail',$image_name);
-            return view('admin.layout');
+            return view('admin.add');
         }
         else 
         echo "fail";
+    }
+    public function addimage(Request $request){
+        $banner_link = $request->link;
+        $type = $request->type;
+        $banner_name = $request->file('banner')->getClientOriginalName();
+        $banner_path = 'img/banner/'.$banner_name;
+        if($request->file('banner')->isValid()){
+            $request->file('banner')->move('img/banner',$banner_name);
+            DB::table('banners')->insert([
+                ['bannerpath'=>$banner_path, 'type'=>$type, 'bannerlink' => $banner_link]
+            ]);
+        }
+        return view('admin.addimage');
+    }
+    public function show(){
+        return view('admin.add');
     }
     
 }

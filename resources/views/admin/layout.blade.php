@@ -126,9 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="form_component.html">Thêm sản phẩm</a></li>
+                        <li><a href="{{URL::to('/add')}}">Thêm sản phẩm</a></li>
                         <li><a href="form_validation.html">Xem sản phẩm</a></li>
-						<li><a href="dropzone.html">Dropzone</a></li>
+						<li><a href="{{URL::to('/addimage')}}">Add banner/Ads</a></li>
                     </ul>
                 </li>
                 <!-- <li class="sub-menu">
@@ -187,34 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper">
-    <h2>Thêm Sản Phẩm</h2><br>
-        <form action="{{URL::to('/add')}}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-            <div class="form-group">
-                <label for="tensp">Tên sản phẩm:</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="tensp">
-            </div>
-            <div class="form-group">
-                <label for="theloai">Thể loại:</label>
-                <input type="text" class="form-control" placeholder="Enter password" name="theloai">
-            </div>
-            <div class="form-group">
-                <label for="gia">Giá:</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="gia">
-            </div>
-            <div class="form-group">
-                <label for="image">Image:</label>
-                <input type="file" class="form-control" placeholder="Enter email" name="image">
-            </div>
-            <div class="form-group">
-                <label for="bigimage">BigImage:</label>
-                <input type="file" class="form-control" placeholder="Enter email" name="bigimage">
-            </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-       
-					 
+        @yield('content')			 
     </section> 
  <!-- footer -->
 		  <div class="footer">
@@ -225,7 +198,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- / footer -->
 </section>
 <!--main content end-->
-</section>
 <script src="{{ asset('js/admin/bootstrap.js') }}"></script>
 <script src="{{ asset('js/admin/jquery.dcjqaccordion.2.7.js') }}"></script>
 <script src="{{ asset('js/admin/scripts.js') }}"></script>
