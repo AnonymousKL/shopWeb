@@ -12,7 +12,7 @@ class AdminController extends Controller
         return view('admin.login');
     }
     public function dashboard(){
-       return view('admin.layout');
+       return view('admin.add');
     }
     public function handle_log(Request $request){
         $admin_email = $request->admin_email;

@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>Add banner/Ads</h2>
-    <form action="{{ URL::to('/addimage') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ URL::to('/product/addimage') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div class="form-group">
                 <label for="type">Loại banner:</label>

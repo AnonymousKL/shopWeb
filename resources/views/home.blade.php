@@ -37,7 +37,7 @@
                 <div class="menu">
                     <ul class="menu-ul">
                         @foreach($danhmuc as $dm)
-                        <li><a href="#">{{$dm->ten}}</a></li><hr>
+                        <li><a href="/shopWeb/public/collection/{{ $dm->id }}">{{$dm->ten}}</a></li><hr>
                         @endforeach
                     </ul> 
                 </div>
@@ -75,7 +75,8 @@
                 <hr class="line"></hr>
                 <ul class="product-ul">
                 @foreach($nam as $n)
-                    <li><a href="#">
+                
+                    <li><a href="/shopWeb/public/detail/{{$n->id}}">
                         <img class="product-img" width="180" height="200" src="{{$n->image}}">
                         <p class="product-name">{{$n->tenSP}}</p>
                         <p class="product-prize">{{ $n->gia }} đ</p>
@@ -83,20 +84,22 @@
                     </li>
                 @endforeach
                 </ul>
-                <span class="btn-xemthem"><a href="#">Xem thêm</a></span>
+                <span class="btn-xemthem"><a href="/shopWeb/public/collection/{{$n->idDM}}">Xem thêm</a></span>
             </div>
             <div class="product2">
                 <h2 class="title">Quần Áo Nữ</h2>
                 <hr class="line"></hr>
                 <ul class="product-ul">
                 @foreach($nu as $g)
-                    <li><img width="180" height="200" src="{{$g->image}}">
+                    <li><a href="/shopWeb/public/detail/{{$g->id}}">
+                        <img width="180" height="200" src="{{$g->image}}">
                         <p class="product-name">{{$g->tenSP}}</p>
                         <p class="product-prize">{{ $g->gia }} đ</p>
+                        </a>
                     </li>
                 @endforeach
                 </ul>
-                <span class="btn-xemthem"><a  href="#">Xem thêm</a></span>
+                <span class="btn-xemthem"><a href="/shopWeb/public/collection/{{$g->idDM}}">Xem thêm</a></span>
             </div>
         
             <!-- Page 1 -->

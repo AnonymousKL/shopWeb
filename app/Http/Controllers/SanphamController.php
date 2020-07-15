@@ -10,9 +10,11 @@ use App\DanhMuc;
 
 class SanphamController extends Controller
 {
-    public function detail(){
-        return view('detail');
+    public function detail($id){
+        $result = DB::table('san_phams')->where('id', $id)->get();
+        return view('detail',compact('result'));
     }
+
     public function home(){
         $nam = DB::table('san_phams')->where('idDM', 1)
                                     ->orderBy('id','desc')
@@ -27,24 +29,10 @@ class SanphamController extends Controller
        
         return view('home', compact(['danhmuc', 'nam', 'nu']));
     }
-    public function create(Request $request){
-        $tensp = $request->tensp;
-        $theloai = $request->theloai;
-        $giatien = $request->gia;
-        $image_name = $request->file('image')->getClientOriginalName();
-        $image_path = 'img/thumbnail/'.$image_name;
-        $bigimage_name = $request->file('bigimage')->getClientOriginalName();
-        $bigimage_path = 'img/poster/'.$bigimage_name;
-        $result = DB::table('san_phams')->insert([
-            ['tenSP' => $tensp, 'idDM' => $theloai,'gia' => $giatien, 'image' => $image_path, 'bigimage' => $bigimage_path]
-        ]); 
-        if ($request->file('image')->isValid()){
-            // Lưu file vào thư mục upload với tên là biến $filename
-            $request->file('image')->move('img/thumbnail',$image_name);
-            return view('admin.add');
-        }
-        else 
-        echo "fail";
+
+   
+    public function showaddimage(){
+        return view('admin.addimage');
     }
     public function addimage(Request $request){
         $banner_link = $request->link;
@@ -57,10 +45,11 @@ class SanphamController extends Controller
                 ['bannerpath'=>$banner_path, 'type'=>$type, 'bannerlink' => $banner_link]
             ]);
         }
-        return view('admin.addimage');
+        return redirect('/product/addimage')->with('success', 'Updated');
     }
-    public function show(){
-        return view('admin.add');
+
+    public function payment(){
+        return view('payment');
     }
     
 }

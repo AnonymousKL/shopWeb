@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <span class="logo"><a href="#"><img src="../../public/img/icon/logo.png"></a></span>
+            <span class="logo"><a href="{{URL::to('/')}}"><img src="../../public/img/icon/logo.png"></a></span>
             <div class="header-right">
                 <p id="contact">Contact: phananhnhat2@gmail.com</p>
                 <div class="social-network" style="font-size: 18px;">
@@ -34,9 +34,10 @@
         <div class="bread-crum">
             <p><i>Trang chủ / Quần áo nam / Hoddie</i></p>
         </div>
+        @foreach($result as $rs)
         <div class="detail-product">
             <div class="poster-left">
-                <img width="650" height="350" src="../../public/img/poster/banner_slide.jpg">
+                <img width="650" height="350" src="../{{$rs->bigImage}}">
             </div>
             <div class="detail-right">
                 <h1 class="product-name-dt">Almost before we knew it</h1>
@@ -47,7 +48,7 @@
                 </div>
                 <div class="btn-wrap">
                     <button class="btn btn-add">Thêm vào giỏ</button>
-                    <button class="btn btn-buy">Mua ngay</button>
+                    <button class="btn btn-buy"><a href="{{URL::to('/payment')}}">Mua ngay</a></button>
                 </div>
             </div>
         </div>
@@ -58,7 +59,7 @@
             <p>(Bảng size mang tính chất tham khảo và phù hợp 80-90% sở thích các cậu ạ. Các bạn muốn chọn size phù hợp có thể xem hình feedback các khách đã mua hoặc inbox cho 1hitshop nhé ^^)
             </p>
         </div>
-
+        @endforeach
         <div class="rela-product">
 
         </div>
