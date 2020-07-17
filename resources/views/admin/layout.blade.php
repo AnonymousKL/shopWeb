@@ -38,8 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="index.html" class="logo">
-        VISITORS
+    <a href="{{URL::to('sanpham')}}" class="logo">
+        DashBoard
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -51,7 +51,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
         <li>
-            <input type="text" class="form-control search" placeholder=" Search">
+            <form action="search" method="get"> 
+            <input type="text" name="keyword" class="form-control " placeholder=" Search">
+            <button type="submit" class="btn btn-primary" >Search</button>
+            </form>
         </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
@@ -68,8 +71,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
@@ -131,16 +132,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/product/addimage')}}">Add banner/Ads</a></li>
                     </ul>
                 </li>
-                <!-- <li class="sub-menu">
+                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
+                        <span>Sửa </span>
                     </a>
                     <ul class="sub">
                         <li><a href="mail.html">Inbox</a></li>
                         <li><a href="mail_compose.html">Compose Mail</a></li>
                     </ul>
                 </li>
+                <!--
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>

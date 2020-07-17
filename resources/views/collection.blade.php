@@ -19,7 +19,7 @@
                 <hr class="line"></hr>
                 <ul class="product-ul">
                 @foreach($result as $n)
-                    <li><a href="/shopWeb/public/detail/{{$n->id}}">
+                    <li><a href="{{ route('detail', ['id' => $n->id]) }}">
                         <img class="product-img" width="180" height="200" src="../{{$n->image}}">
                         <p class="product-name">{{$n->tenSP}}</p>
                         <p class="product-prize">{{ $n->gia }} đ</p>

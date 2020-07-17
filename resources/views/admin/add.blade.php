@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>Thêm Sản Phẩm</h2><br>
-        <form action="{{URL::to('/product/create')}}" method="post" enctype="multipart/form-data">
+        <form action="{{URL::to('sanpham')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div class="form-group">
                 <label for="tensp">Tên sản phẩm:</label>

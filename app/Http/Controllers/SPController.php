@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class SPController extends Controller
 {
@@ -48,7 +49,7 @@ class SPController extends Controller
             // Lưu file vào thư mục upload với tên là biến $filename
             $request->file('image')->move('img/thumbnail',$image_name);
             $request->file('bigimage')->move('img/poster',$bigimage_name);
-            return redirect('/sanpham');
+            return redirect('sanpham');
         }
         else 
         echo "fail";
@@ -62,7 +63,11 @@ class SPController extends Controller
      */
     public function show($id)
     {
-        //
+        $sp = DB::table('san_phams')->where('idDM', $id)
+                                    ->orderBy('id','desc')
+                                    ->get();
+        $dm = DB::table('danh_mucs')->where('id', $id)->value('ten');
+        return view('admin.show',compact(['sp','dm']));
     }
 
     /**

@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <span class="logo"><a href="#"><img src="{{asset('img/icon/logo.png')}}"></a></span>
+            <span class="logo"><a href="{{ URL::to('/') }}"><img src="{{asset('img/icon/logo.png')}}"></a></span>
             <div class="header-right">
                 <p id="contact"><a href="#">Contact: phananhnhat2@gmail.com</a></p>
                 <div class="social-network" style="font-size: 18px;">
@@ -22,9 +22,9 @@
                     <i class="fab fa-instagram-square fa-lg"></i>
                 </div>
                 <div class="search">
-                    <form class="search-form" action="" method="">
-                        <input type="text" id="search-box" placeholder="Tìm kiếm">
-                        <button type="button" id="btn-search">Search</button>
+                    <form class="search-form" action="searchsp" method="get">
+                        <input type="text" name="keyword" id="search-box" placeholder="Tìm kiếm">
+                        <button type="submit" id="btn-search">Search</button>
                     </form>
                     <span id="btn-login"><a href="{{URL::to('/login')}}">Đăng Nhập</a></span>
                     <span id="btn-register"><a href="{{URL::to('/login')}}">Đăng Ký</a></span>
@@ -37,7 +37,7 @@
                 <div class="menu">
                     <ul class="menu-ul">
                         @foreach($danhmuc as $dm)
-                        <li><a href="/shopWeb/public/collection/{{ $dm->id }}">{{$dm->ten}}</a></li><hr>
+                        <li><a href="collection/{{$dm->id}}">{{$dm->ten}}</a></li><hr>
                         @endforeach
                     </ul> 
                 </div>
@@ -76,7 +76,7 @@
                 <ul class="product-ul">
                 @foreach($nam as $n)
                 
-                    <li><a href="/shopWeb/public/detail/{{$n->id}}">
+                    <li><a href="{{ route('detail', ['id' => $n->id]) }}">
                         <img class="product-img" width="180" height="200" src="{{$n->image}}">
                         <p class="product-name">{{$n->tenSP}}</p>
                         <p class="product-prize">{{ $n->gia }} đ</p>
@@ -84,7 +84,7 @@
                     </li>
                 @endforeach
                 </ul>
-                <span class="btn-xemthem"><a href="/shopWeb/public/collection/{{$n->idDM}}">Xem thêm</a></span>
+                <span class="btn-xemthem"><a href="{{ route('collection',[ 'id' => $n->idDM ]) }}">Xem thêm</a></span>
             </div>
             <div class="product2">
                 <h2 class="title">Quần Áo Nữ</h2>
@@ -99,7 +99,7 @@
                     </li>
                 @endforeach
                 </ul>
-                <span class="btn-xemthem"><a href="/shopWeb/public/collection/{{$g->idDM}}">Xem thêm</a></span>
+                <span class="btn-xemthem"><a href="{{ route('collection',[ 'id' => $g->idDM ]) }}">Xem thêm</a></span>
             </div>
         
             <!-- Page 1 -->
@@ -114,7 +114,7 @@
                     </li>
                 @endforeach
                 </ul>
-            <span class="btn-xemthem">Xem thêm</span>
+            <span class="btn-xemthem"><a href="{{ route('collection',[ 'id' => $sp->idDM ]) }}">Xem thêm</a></span>
             </div>
 
             <div class="footer">

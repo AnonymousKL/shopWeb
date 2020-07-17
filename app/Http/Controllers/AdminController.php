@@ -12,7 +12,13 @@ class AdminController extends Controller
         return view('admin.login');
     }
     public function dashboard(){
-       return view('admin.add');
+        if(!session('admin_name'))
+            {
+                return redirect('/login');
+            }
+        else{
+                return view('admin.add');
+            }
     }
     public function handle_log(Request $request){
         $admin_email = $request->admin_email;
@@ -25,7 +31,7 @@ class AdminController extends Controller
             return redirect('dashboard');
         }
         else 
-            Session::put('message', 'Wrong!');
+            Session::put('message', 'Sai TK or PASS!');
              return redirect('login');
     }
     public function logout(){

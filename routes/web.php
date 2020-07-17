@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'SanphamController@home');
-Route::get('detail/{id}', 'SanphamController@detail');
+Route::get('detail/{id}', 'SanphamController@detail')->name('detail');
 //Admin
 Route::get('login', 'AdminController@login');
 Route::get('dashboard', 'AdminController@dashboard');
-Route::post('/handle_log', 'AdminController@handle_log');
-Route::get('/logout', 'AdminController@logout');
+Route::post('handle_log', 'AdminController@handle_log');
+Route::get('logout', 'AdminController@logout');
 
 //Handle product
 // Route::group(['prefix' => 'product'], function(){
@@ -29,7 +29,22 @@ Route::get('/logout', 'AdminController@logout');
 //     Route::post('/test', 'SanPhamController@test');
 // });
 Route::resource('sanpham', 'SPController');
+//(chi can goi action den sanpham, method = post de goi ham store)
 
 //Collection
-Route::get('collection/{id}', 'CollectionController@collection');
+Route::get('collection/{id}', 'CollectionController@collection')->name('collection');
 Route::get('payment', 'SanphamController@payment');
+
+//test
+Route::resource('test', 'TestController');
+
+Route::get('search', function(){
+    $keyword = $_GET['keyword'];
+    $search = DB::table('san_phams')->where('tenSP','like','%'.$keyword.'%')->get();
+   return view('admin.search', compact('search'));
+});
+Route::get('searchsp', function(){
+    $keyword = $_GET['keyword'];
+    $search = DB::table('san_phams')->where('tenSP','like','%'.$keyword.'%')->get();
+   return view('search', compact('search'));
+});
