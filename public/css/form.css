@@ -1,0 +1,45 @@
+
+            @font-face{
+                font-family:balsamiqSans;
+                src: url(BalsamiqSans_Regular.ttf);
+                }
+                
+                .login{
+                    width:400px; height: auto;
+                    background-color:#f5a052; border-radius: 10px; 
+                    margin: 0 auto;
+                }
+                h2{text-align: center; 
+                    margin-top: 2rem;
+                    font-size: 1.5rem;
+                }
+                .field{
+                    margin: 10px 30px;
+                    position: relative;
+                    padding: 10px;
+                }
+                .inputText{
+                    position: absolute;
+                    right: 20px;
+                    padding: 8px;
+                }
+                label,p,h2{
+                    font-family:'balsamiqSans', cursive;
+                }
+                label{
+                    margin-right: 10px;
+                }
+                p{
+                    text-align: center;
+                    padding-bottom:10px;
+                }
+                .btn{
+                    padding: 5px 20px;
+                    border-radius: 3px;
+                    font-family: 'balsamiqSans', cursive;
+                    font-weight: bold;
+                    background-color: rgb(223, 245, 99);
+                    margin: 25px auto;
+                    display: flex;
+               }
+            

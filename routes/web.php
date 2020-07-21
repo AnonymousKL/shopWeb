@@ -19,6 +19,8 @@ Route::get('login', 'AdminController@login');
 Route::get('dashboard', 'AdminController@dashboard');
 Route::post('handle_log', 'AdminController@handle_log');
 Route::get('logout', 'AdminController@logout');
+Route::get('register', 'AdminController@register');
+Route::post('handle_reg', 'AdminController@handle_reg');
 
 //Handle product
 // Route::group(['prefix' => 'product'], function(){
@@ -47,4 +49,8 @@ Route::get('searchsp', function(){
     $keyword = $_GET['keyword'];
     $search = DB::table('san_phams')->where('tenSP','like','%'.$keyword.'%')->get();
    return view('search', compact('search'));
+});
+Route::get('AddCart/{id}','CartController@AddCart');
+Route::get('cart', function(){
+    return view('cart');
 });

@@ -11,25 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <span class="logo"><a href="{{URL::to('/')}}"><img src="../../public/img/icon/logo.png"></a></span>
-            <div class="header-right">
-                <p id="contact">Contact: phananhnhat2@gmail.com</p>
-                <div class="social-network" style="font-size: 18px;">
-                    <i class="fab fa-facebook-square fa-lg"></i>
-                    <i class="fab fa-twitter-square fa-lg"></i>
-                    <i class="fab fa-instagram-square fa-lg"></i>
-                </div>
-                <div class="search">
-                    <form class="search-form" action="" method="">
-                        <input type="text" id="search-box" placeholder="Tìm kiếm">
-                        <button type="button" id="btn-search">Search</button>
-                    </form>
-                    <span id="btn-login"><a href="#">Đăng Nhập</a></span>
-                    <span id="btn-register"><a href="#">Đăng Ký</a></span>
-                </div>
-            </div>
-        </div>
+        @include('inc.navbar')
         <!-- End header -->
         <div class="bread-crum">
             <p><i>Trang chủ / Quần áo nam / Hoddie</i></p>
@@ -47,7 +29,7 @@
                     <p class="product-key">Giá: <span class="product-val">234.000 đ</span></p>
                 </div>
                 <div class="btn-wrap">
-                    <button class="btn btn-add">Thêm vào giỏ</button>
+                    <button class="btn btn-add"><a href="{{url('/AddCart/'.$rs->id)}}">Thêm vào giỏ</a></button>
                     <button class="btn btn-buy"><a href="{{URL::to('/payment')}}">Mua ngay</a></button>
                 </div>
             </div>

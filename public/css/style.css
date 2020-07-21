@@ -23,9 +23,23 @@
             margin-right: 1rem;
             margin-top: 5px;
         }
-        .search{
+        .fa-lg{
+            padding: 2px;
+            font-size: 1.6em !important;
+        }
+        #cart-items{
+            border: 1px solid black;
+            width: 300px;
+            display: none;
+            z-index: 999;
+            position: absolute;
+            background-color: gray;
+        }
+        #cart-items>ul>li{
             display: flex;
-            
+        }
+        .search{
+            display: flex; 
         }
         #search-box{
             width: 250px;
@@ -49,6 +63,8 @@
             left: -35px;
             top: 10px;
             background-color: #373737;
+            color: rgb(255, 164, 45);
+            font-size: .9em;
         }
         #btn-search:focus{
             outline: none;
@@ -109,6 +125,9 @@
         .menu-ul>li>a{
             color:rgba(0, 0, 0, 0.5);
             font-size: 1.2rem;
+        }.menu-ul>li>.danh-muc:hover{
+            color: rgb(12, 12, 12);
+            text-shadow: 2px 2px 3px rgb(53, 50, 50);
         }
         .carousel{
           width: 800px;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../public/js/carousel.js"></script>
+    <script src="https://kit.fontawesome.com/dff7dacd30.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="cart-items">
+        <ul>
+            <li>
+                <img width="80" height="90" src="">
+                <div class="item-detail">
+                    <p class="item-price">234,000 đ <span>x 1</span></p>
+                    <p class="item-name">Áo choàng nam nữ gì gì đó</p>
+                </div>
+                
+            </li>
+        </ul>
+    </div>
+    <button class="button" onmouseover="document.getElementById('cart-items').style.visiblility = 'visible'">Submit</button>
+</body>
+<style>
+    .fa-lg{
+            padding: 2px;
+            font-size: 1.6em !important;
+        }
+       
+        #cart-items{
+            border: 1px solid black;
+            width: 300px;
+            visibility:hidden;
+        }
+        .button:hover #cart-items{
+            visibility: visible;
+        }
+        .cart-items>ul>li{
+            display: flex;
+        }
+</style>
+<script>
+  
+</script>
+</html>

@@ -49,6 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="top-nav clearfix">
     <!--search & user info start-->
+    <span><a href="{{ URL::to('/') }}">Về trang web</a></span>
     <ul class="nav pull-right top-menu">
         <li>
             <form action="search" method="get"> 

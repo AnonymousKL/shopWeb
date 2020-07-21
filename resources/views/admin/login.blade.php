@@ -1,61 +1,38 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Admin-Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel="stylesheet" href="{{ asset('css/admin/bootstrap.min.css') }}" >
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href="{{ asset('css/admin/style.css') }}" rel='stylesheet' type='text/css' />
-<link href="{{ asset('css/admin/style-responsive.css') }}" rel="stylesheet"/>
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel="stylesheet" href="{{ asset('css/admin/font.css') }}" type="text/css"/>
-<link href="{{ asset('css/admin/font-awesome.css') }}" rel="stylesheet"> 
-<!-- //font-awesome icons -->
-<script src="{{asset('js/admin/jquery2.0.3.min.js')}}"></script>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('css/form.css')}}"/>
+    <title>Login</title>
 </head>
 <body>
-<div class="log-w3">
-<div class="w3layouts-main">
-	<h2>Sign In Now</h2>
+    <div class="login">
+        <h2>Đăng Nhập</h2>
         <form action="{{ URL::to('/handle_log') }}" method="post">
         {{ csrf_field() }}
             <?php
                 $message = Session::get('message');
                 if($message){
-                    echo '<span class="text-danger text-center">'.$message.'<span>';
+                    echo '<div class="field" style="color:red">'.$message.'</div>';
                     Session::put('message',null);
                 }
              
             ?>
-			<input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
-			<input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
-			<span><input type="checkbox" />Remember Me</span>
-			<h6><a href="#">Forgot Password?</a></h6>
-				<div class="clearfix"></div>
-				<input type="submit" value="Sign In" name="login">
-		</form>
-		<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>
-</div>
-</div>
-<script src="{{ asset('js/admin/bootstrap.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.dcjqaccordion.2.7.js') }}"></script>
-<script src="{{ asset('js/admin/scripts.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.slimscroll.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.nicescroll.js') }}"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="{{ asset('js/admin/jquery.scrollTo.js') }}"></script>
+            <div class="field">
+                <label>Email</label> 
+                <input type="text" name="admin_email" class="inputText">
+            </div>
+            <div class="field">
+                <label>Password</label> 
+                <input type="password" name="admin_password" class="inputText">
+            </div>
+            <input type="submit" value="Login" name="btnLogin" class="btn">
+            <p>Don't have an account? <a href="{{URL::to('/register')}}">Sign Up</a></p>
+
+        </form>
+        
+    </div>
 </body>
 </html>

@@ -7,37 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/carousel.js')}}"></script>
+    <script src="{{ asset('js/custome.js') }}"></script>
     <script src="https://kit.fontawesome.com/dff7dacd30.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <span class="logo"><a href="{{ URL::to('/') }}"><img src="{{asset('img/icon/logo.png')}}"></a></span>
-            <div class="header-right">
-                <p id="contact"><a href="#">Contact: phananhnhat2@gmail.com</a></p>
-                <div class="social-network" style="font-size: 18px;">
-                    <i class="fab fa-facebook-square fa-lg"></i>
-                    <i class="fab fa-twitter-square fa-lg"></i>
-                    <i class="fab fa-instagram-square fa-lg"></i>
-                </div>
-                <div class="search">
-                    <form class="search-form" action="searchsp" method="get">
-                        <input type="text" name="keyword" id="search-box" placeholder="Tìm kiếm">
-                        <button type="submit" id="btn-search">Search</button>
-                    </form>
-                    <span id="btn-login"><a href="{{URL::to('/login')}}">Đăng Nhập</a></span>
-                    <span id="btn-register"><a href="{{URL::to('/login')}}">Đăng Ký</a></span>
-                </div>
-            </div>
-        </div>
+        @include('inc.navbar')
         <!-- End navbar -->
         <div class="main">
             <div class="menu-slide">
                 <div class="menu">
                     <ul class="menu-ul">
                         @foreach($danhmuc as $dm)
-                        <li><a href="collection/{{$dm->id}}">{{$dm->ten}}</a></li><hr>
+                        <li><a href="collection/{{$dm->id}}" class="danh-muc">{{$dm->ten}}</a></li><hr>
                         @endforeach
                     </ul> 
                 </div>
