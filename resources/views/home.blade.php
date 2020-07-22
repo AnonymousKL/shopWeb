@@ -60,7 +60,7 @@
                 @foreach($nam as $n)
                 
                     <li><a href="{{ route('detail', ['id' => $n->id]) }}">
-                        <img class="product-img" width="180" height="200" src="{{$n->image}}">
+                        <img class="product-img" width="250" height="230" src="{{$n->image}}">
                         <p class="product-name">{{$n->tenSP}}</p>
                         <p class="product-prize">{{ $n->gia }} đ</p>
                         </a>
@@ -75,7 +75,7 @@
                 <ul class="product-ul">
                 @foreach($nu as $g)
                     <li><a href="/shopWeb/public/detail/{{$g->id}}">
-                        <img width="180" height="200" src="{{$g->image}}">
+                        <img class="product-img" width="250" height="230" src="{{$g->image}}">
                         <p class="product-name">{{$g->tenSP}}</p>
                         <p class="product-prize">{{ $g->gia }} đ</p>
                         </a>
